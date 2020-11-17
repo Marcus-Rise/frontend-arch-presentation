@@ -1,11 +1,13 @@
 @use "typography";
-@use "variables";
+@use "variables" as v;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
 
 :root {
-  --primary: #{variables.$color-primary};
-  --secondary: #{variables.$color-secondary};
-  --accent: #{variables.$color-accent};
+  --primary: #{v.$color-primary};
+  --secondary: #{v.$color-secondary};
+  --accent: #{v.$color-accent};
+  --background: #{v.$color-background};
+  --color-text: #{v.$color-text};
 }
 
 html, body {
@@ -16,4 +18,6 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
+  background-color: var(--background);
+  color: var(--color-text);
 }
