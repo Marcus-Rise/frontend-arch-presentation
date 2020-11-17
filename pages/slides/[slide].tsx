@@ -23,9 +23,7 @@ enum KeyboardKey {
 const SlideshowPage: React.FC<IProps> = ({ currentSlide, totalSlidePages }) => {
   const MDXContent = dynamic(() => import(`../../slides/${currentSlide}.mdx`));
   const router = useRouter();
-  const goToSlide = (slide: number) => {
-    return router.push(`/slides/${slide}`);
-  };
+  const goToSlide = (slide: number) => router.push(`/slides/${slide}`);
   const goToPrev = (): void => {
     if (currentSlide > 1) {
       goToSlide(currentSlide - 1);
