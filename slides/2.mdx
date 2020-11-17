@@ -1,4 +1,13 @@
-<div>
-    test2
-</div>
-
+```js
+if (live) {
+    return (
+      <div style={{ marginTop: "40px" }}>
+        <LiveProvider code={code} transformCode={(code) => "/** @jsx mdx */" + code} scope={{ mdx }}>
+          <LivePreview />
+          <LiveEditor />
+          <LiveError />
+        </LiveProvider>
+      </div>
+    );
+  }
+```

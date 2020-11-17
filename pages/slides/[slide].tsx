@@ -8,6 +8,8 @@ import { siteConfig } from "../../src/site.config";
 import { Navigator } from "../../src/components/navidator";
 import { Slide } from "../../src/components/slide";
 import { useRouter } from "next/router";
+import { MDXProvider } from "@mdx-js/react";
+import { Code } from "../../src/components/code";
 
 interface IProps {
   totalSlidePages: number;
@@ -19,6 +21,15 @@ enum KeyboardKey {
   ARROW_LEFT = "ArrowLeft",
   ARROW_RIGHT = "ArrowRight",
 }
+
+const h1: React.FC = (props) => <h1 style={{ textAlign: "center" }} {...props} />;
+const pre: React.FC = (props) => <div {...props} />;
+
+const components = {
+  h1,
+  pre,
+  code: Code,
+};
 
 const SlideshowPage: React.FC<IProps> = ({ currentSlide, totalSlidePages }) => {
   const MDXContent = dynamic(() => import(`../../slides/${currentSlide}.mdx`));
@@ -59,7 +70,9 @@ const SlideshowPage: React.FC<IProps> = ({ currentSlide, totalSlidePages }) => {
         </title>
       </Head>
       <Slide>
-        <MDXContent />
+        <MDXProvider components={components}>
+          <MDXContent />
+        </MDXProvider>
       </Slide>
       <Navigator
         pagesTotalCount={totalSlidePages}

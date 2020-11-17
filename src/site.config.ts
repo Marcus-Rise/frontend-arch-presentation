@@ -1,5 +1,5 @@
 const siteConfig = {
-  title: `Архитектура Frontend`,
+  title: `Frontend: Patterns in React, TDD, CSS and more`,
   date: `Ноябрь 18, 2020`,
   author: {
     name: `Илья Константинов`,
