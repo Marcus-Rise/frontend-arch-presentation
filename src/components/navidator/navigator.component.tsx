@@ -1,12 +1,25 @@
 import React from "react";
 import styles from "./navigator.module.scss";
 
-const Navigator: React.FC<{ pagesTotalCount: number; pageCurrentNumber: number }> = (props) => {
+const Navigator: React.FC<{
+  pagesTotalCount: number;
+  pageCurrentNumber: number;
+  onPrev: () => void;
+  onNext: () => void;
+}> = (props) => {
   return (
     <div className={styles.root}>
-      {props.pageCurrentNumber}
-      {" / "}
-      {props.pagesTotalCount}
+      <button className={styles.button} onClick={props.onPrev}>
+        ‹
+      </button>
+      <span className={styles.status}>
+        {props.pageCurrentNumber}
+        {" / "}
+        {props.pagesTotalCount}
+      </span>
+      <button className={styles.button} onClick={props.onNext}>
+        ›
+      </button>
     </div>
   );
 };

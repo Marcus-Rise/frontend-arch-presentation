@@ -1,4 +1,31 @@
 .root {
   text-align: center;
   padding: 1rem 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status {
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+}
+
+.button {
+  border: none;
+  font-size: 2rem;
+  line-height: 2rem;
+  height: 2rem;
+  background: none;
+  display: inline-block;
+  margin: 0 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }

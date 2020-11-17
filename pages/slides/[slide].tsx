@@ -26,13 +26,23 @@ const SlideshowPage: React.FC<IProps> = ({ currentSlide, totalSlidePages }) => {
   const goToSlide = (slide: number) => {
     return router.push(`/slides/${slide}`);
   };
+  const goToPrev = (): void => {
+    if (currentSlide > 1) {
+      goToSlide(currentSlide - 1);
+    }
+  };
+  const goToNext = (): void => {
+    if (currentSlide < totalSlidePages) {
+      goToSlide(currentSlide + 1);
+    }
+  };
 
   useEffect(() => {
     const navigate = ({ key }: KeyboardEvent): void => {
-      if (key === KeyboardKey.ARROW_RIGHT && currentSlide < totalSlidePages) {
-        goToSlide(currentSlide + 1);
-      } else if (key === KeyboardKey.ARROW_LEFT && currentSlide > 1) {
-        goToSlide(currentSlide - 1);
+      if (key === KeyboardKey.ARROW_RIGHT) {
+        goToNext();
+      } else if (key === KeyboardKey.ARROW_LEFT) {
+        goToPrev();
       }
     };
 
@@ -53,7 +63,12 @@ const SlideshowPage: React.FC<IProps> = ({ currentSlide, totalSlidePages }) => {
       <Slide>
         <MDXContent />
       </Slide>
-      <Navigator pagesTotalCount={totalSlidePages} pageCurrentNumber={currentSlide} />
+      <Navigator
+        pagesTotalCount={totalSlidePages}
+        pageCurrentNumber={currentSlide}
+        onPrev={goToPrev}
+        onNext={goToNext}
+      />
     </>
   );
 };
