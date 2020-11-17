@@ -1,0 +1,19 @@
+@use "typography";
+@use "variables";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+:root {
+  --primary: #{variables.$color-primary};
+  --secondary: #{variables.$color-secondary};
+  --accent: #{variables.$color-accent};
+}
+
+html, body {
+  @include typography.Montserrat;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}

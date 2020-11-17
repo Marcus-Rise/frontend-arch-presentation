@@ -1,0 +1,25 @@
+@mixin Montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+@mixin black {
+  @include Montserrat;
+  font-weight: 900;
+}
+
+@mixin bold {
+  @include Montserrat;
+  font-weight: 700;
+}
+
+@mixin regular {
+  @include Montserrat;
+  font-weight: 400;
+}
+
+@mixin light {
+  @include Montserrat;
+
+  font-weight: 300;
+}
