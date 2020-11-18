@@ -1,0 +1,19 @@
+# Приложение 2: Паттерн Strategy
+
+[Назад](/slides/4)
+
+```ts
+const catService = new CatService(new CatInMemoryRepository());
+
+const catService = new CatService(new CatFromApiRepository());
+```
+
+```ts
+export class CatService implements ICatService {
+    constructor(private readonly repo: ICatRepository) {
+    }
+
+    async feedCatByName(name: string): Promise<CatEntity> {
+        const iCat = await this.repo.find({name});
+...
+```

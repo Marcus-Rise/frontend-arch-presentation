@@ -1,6 +1,15 @@
-# Итоги
+# CSS-modules
 
--  **[Design Patterns](/slides/4)**: добавляет гибкость в проект и снижает риск перехода в тех. долг
--  **Docker**: разгружает разработчика в вопросах развертывания и не засоряет хост
--  **Test Driven Development**: надежность кодовой базы, возможность быстро найти проблему
--  **CSS-modules**: переиспользуемость и иммутабельность CSS
+```tsx
+import "./styles.scss";
+...
+<div className={"property__title"}>
+...
+```
+
+```tsx
+import styles from "./styles.module.scss";
+...
+<div className={styles.value}>
+...
+```

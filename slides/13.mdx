@@ -1,11 +1,15 @@
-# Приложение 2: Паттерн Strategy
+# Приложение 1: Паттерн Facade
 
 [Назад](/slides/4)
 
 ```ts
-const catService = new CatService(new CatInMemoryRepository());
+const catService = container.get<ICatService>(CAT_SERVICE_PROVIDER);
 
-const catService = new CatService(new CatFromApiRepository());
+catService.add({name: "kitty", size: 3, isHungry: true})
+    .then(async () => {
+        const {name} = await catService.getTheBiggest()
+        const happyCat = await catService.feedCatByName(name);
+...
 ```
 
 ```ts
