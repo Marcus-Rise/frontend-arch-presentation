@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import styles from "./header.module.scss";
 import { ClassNames } from "../../utils/class-names";
-import { siteConfig } from "../../site.config";
 
 const Header: React.FC<{
   title: string;
@@ -11,6 +10,7 @@ const Header: React.FC<{
     url: string;
   };
   date: string;
+  src: string;
 }> = (props) => {
   return (
     <header className={styles.root}>
@@ -24,7 +24,7 @@ const Header: React.FC<{
         </Link>
       </div>
       <div className={styles.meta}>
-        <Link href={siteConfig.src}>
+        <Link href={props.src}>
           <a className={ClassNames(styles.link, styles.name)} target={"_blank"}>
             Sources available on Github
           </a>
