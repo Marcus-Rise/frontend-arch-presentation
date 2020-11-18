@@ -24,13 +24,13 @@ const Header: React.FC<{
         </Link>
       </div>
       <div className={styles.meta}>
+        <time>{props.date}</time>
+        {" — "}
         <Link href={props.src}>
           <a className={ClassNames(styles.link, styles.name)} target={"_blank"}>
             Sources available on Github
           </a>
         </Link>
-        {" — "}
-        <time>{props.date}</time>
       </div>
     </header>
   );
