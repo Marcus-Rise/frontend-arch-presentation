@@ -5,6 +5,7 @@ const siteConfig = {
     name: `Илья Константинов`,
     url: `https://marcus-rise.dev`,
   },
+  src: "https://github.com/Marcus-Rise/frontend-arch-presentation",
 };
 
 export { siteConfig };

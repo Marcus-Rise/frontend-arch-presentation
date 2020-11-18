@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styles from "./header.module.scss";
 import { ClassNames } from "../../utils/class-names";
+import { siteConfig } from "../../site.config";
 
 const Header: React.FC<{
   title: string;
@@ -22,7 +23,15 @@ const Header: React.FC<{
           <a className={ClassNames(styles.link, styles.name)}>{props.title}</a>
         </Link>
       </div>
-      <time className={styles.time}>{props.date}</time>
+      <div className={styles.meta}>
+        <Link href={siteConfig.src}>
+          <a className={ClassNames(styles.link, styles.name)} target={"_blank"}>
+            Sources available on Github
+          </a>
+        </Link>
+        {" — "}
+        <time>{props.date}</time>
+      </div>
     </header>
   );
 };
