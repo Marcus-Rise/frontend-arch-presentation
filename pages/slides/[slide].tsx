@@ -24,11 +24,13 @@ enum KeyboardKey {
 
 const h1: React.FC = (props) => <h1 style={{ textAlign: "center" }} {...props} />;
 const pre: React.FC = (props) => <div {...props} />;
+const li: React.FC = (props) => <li {...props} style={{ marginBottom: "1rem" }} />;
 
 const components = {
   h1,
   pre,
   code: Code,
+  li,
 };
 
 const SlideshowPage: React.FC<IProps> = ({ currentSlide, totalSlidePages }) => {
