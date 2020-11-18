@@ -1,0 +1,12 @@
+.root {
+  margin-bottom: 1rem;
+
+  &::marker {
+    color: var(--accent) !important;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
