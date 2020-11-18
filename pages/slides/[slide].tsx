@@ -10,6 +10,8 @@ import { Slide } from "../../src/components/slide";
 import { useRouter } from "next/router";
 import { MDXProvider } from "@mdx-js/react";
 import { Code } from "../../src/components/code";
+import Link from "next/link";
+import { Li } from "../../src/components/li";
 
 interface IProps {
   totalSlidePages: number;
@@ -24,13 +26,14 @@ enum KeyboardKey {
 
 const h1: React.FC = (props) => <h1 style={{ textAlign: "center" }} {...props} />;
 const pre: React.FC = (props) => <div {...props} />;
-const li: React.FC = (props) => <li {...props} style={{ marginBottom: "1rem" }} />;
+const a: React.FC = (props) => <Link href={""} {...props} />;
 
 const components = {
   h1,
   pre,
   code: Code,
-  li,
+  li: Li,
+  a,
 };
 
 const SlideshowPage: React.FC<IProps> = ({ currentSlide, totalSlidePages }) => {
